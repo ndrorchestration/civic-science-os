@@ -1,0 +1,18 @@
+schema_version: "0.1.0"
+started_at: "YYYY-MM-DDTHH:MM:SS-04:00"
+ended_at: "YYYY-MM-DDTHH:MM:SS-04:00"
+ecosystem: "zooniverse"
+project: "Planet Hunters TESS"
+project_url: "https://www.zooniverse.org/projects/nora-dot-eisner/planet-hunters-tess"
+workflow: "Do you see a Transit?"
+instruction_sources:
+  - "https://www.zooniverse.org/projects/nora-dot-eisner/planet-hunters-tess"
+classification_mode: "HUMAN_ONLY"
+ai_assistance_during_classification: false
+classifications_completed: null
+uncertainty_notes: ""
+ambiguity_codes: []
+procedural_friction: []
+learning_notes: ""
+claim_status: "OBSERVED"
+follow_up: ""
