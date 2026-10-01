@@ -1,4 +1,4 @@
-# Windows deployment — v0.2.0
+# Windows deployment — v0.2.1
 
 Status: PROCEDURE READY / LOCAL EXECUTION PENDING.
 
@@ -17,7 +17,7 @@ This procedure verifies the logger on a Windows host. It does not perform or val
 git clone https://github.com/ndrorchestration/civic-science-os.git
 cd civic-science-os
 git fetch --tags
-git checkout v0.2.0
+git checkout v0.2.1
 Set-ExecutionPolicy -Scope Process Bypass
 .\INSTALL-WINDOWS.ps1
 .\VERIFY-WINDOWS.ps1

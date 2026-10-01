@@ -62,3 +62,15 @@ State may advance to `ONE REAL SESSION FUNCTIONALLY EXERCISED` only after:
 3. the process record validates;
 4. derived indexes rebuild;
 5. the first real process review is generated.
+
+## v0.2.1 provenance-integrity patch
+
+The v0.2.0 tag remains immutable and historically accurate as a software-verified release, but its in-tree `MANIFEST.sha256.json` retained the original v0.1 transfer/archive hashes and therefore did not describe the current repository payload.
+
+v0.2.1 repairs that metadata without rewriting v0.2.0:
+- historical transfer hashes are preserved in `TRANSFER_MANIFEST.sha256.json`;
+- `MANIFEST.sha256.json` becomes the canonical current-source manifest for an explicit payload scope;
+- `tools/verify_manifest.py` verifies SHA-256 and byte counts from the checkout;
+- CI runs manifest verification before install/tests and fails closed on covered-file drift.
+
+This patch changes provenance/integrity controls only. It does not advance scientific-participation or validation claims.

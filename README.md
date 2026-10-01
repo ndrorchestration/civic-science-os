@@ -1,6 +1,6 @@
 # Civic Science Contribution OS
 
-A provenance-first logger for human citizen-science participation. The current verified software release is v0.2.0.
+A provenance-first logger for human citizen-science participation. The current released software line is v0.2.x; v0.2.1 is the provenance-integrity patch.
 
 ## Safety / research boundary
 
@@ -35,9 +35,9 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 The bootstrap creates a local `.venv`; it does not configure browser automation, API submission, or classification assistance.
 
-## v0.2.0 hardening
+## v0.2 hardening
 
-v0.2.0 adds:
+v0.2 adds:
 - strict rejection of unknown session fields;
 - timezone validation for all recorded timestamps;
 - coupled explanation requirements for `OTHER` ambiguity;
@@ -50,3 +50,7 @@ v0.2.0 adds:
 ## Verification
 
 GitHub Actions tests Python 3.10–3.13, package installation, pytest, and the CLI smoke path. See `docs/RELEASE_PROVENANCE.md` for exact evidence and claim ceilings, and `docs/WINDOWS_DEPLOYMENT.md` for the bounded local-install procedure.
+
+## Manifest provenance
+
+`TRANSFER_MANIFEST.sha256.json` preserves the original v0.1 transfer/archive hashes as historical provenance. `MANIFEST.sha256.json` is the canonical current-source manifest for the explicitly covered executable/test/deployment payload. CI runs `tools/verify_manifest.py` and fails closed on hash or byte-count drift.

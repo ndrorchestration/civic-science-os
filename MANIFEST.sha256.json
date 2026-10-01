@@ -1,17 +1,72 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
+  "record_class": "CANONICAL_SOURCE_MANIFEST",
+  "scope": {
+    "description": "Executable, test, CI, deployment-script, package-metadata, and canonical session-template payload.",
+    "excludes": [
+      "MANIFEST.sha256.json",
+      "TRANSFER_MANIFEST.sha256.json",
+      "tools/verify_manifest.py",
+      "README.md",
+      "docs/**"
+    ],
+    "note": "Excluded files are documentation or integrity machinery; the verifier and manifest cannot safely include the manifest itself. Any covered-file drift fails CI."
+  },
   "files": [
-    {"path": ".github/workflows/ci.yml", "sha256": "f267c9a728a8e908801e5a95cd0f448293ba6584c1c3c89ea0339c0acb6b31f5", "bytes": 592},
-    {"path": "INSTALL-WINDOWS.ps1", "sha256": "9f1e8cc0400402d5afd17748314e22a701c7604dcad44439f61477075c4a0785", "bytes": 675},
-    {"path": "README.md", "sha256": "ae82c790ac71a32754aa8e4d416547225446269ce9e25ba12bd8f22850bdffe0", "bytes": 1542},
-    {"path": "VERIFY-WINDOWS.ps1", "sha256": "953bc76079920a865db9a90ada4bfead4da4c8c94cf97ddae5047f46b3056a79", "bytes": 460},
-    {"path": "docs/RELEASE_PROVENANCE.md", "sha256": "478493f30e63a750f1c2caa0351ec006af967caed3b303c3301f400e5d63fd8b", "bytes": 1378},
-    {"path": "pyproject.toml", "sha256": "dd690360f9a2ad6bc5e90200a908d26c2463fa35db567bfd99a5eb02e9a2c907", "bytes": 435},
-    {"path": "src/civic_science/__init__.py", "sha256": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed", "bytes": 22},
-    {"path": "src/civic_science/cli.py", "sha256": "ad855acadea032195ece462abf83dc4b1458b12d971c23a5844683322811b2fb", "bytes": 2082},
-    {"path": "src/civic_science/models.py", "sha256": "6358dce762f15716ab5bddbe9a4caad5a4030343ee276f4e78d4c9404097ac78", "bytes": 2715},
-    {"path": "src/civic_science/review.py", "sha256": "f9868f7cfb5a6c1050a61671b549967f0181d81f2e89b771fb4390810989bed1", "bytes": 1912},
-    {"path": "src/civic_science/storage.py", "sha256": "50bf63b1e7ad4a822ebcc722aebd3ac48f9af8f336783c83a022e96190cc86e5", "bytes": 2056},
-    {"path": "tests/test_logger.py", "sha256": "18732dc9c1f4827196614f4f1996e2ad69fb24f9648aece187e0fd01c8988ffa", "bytes": 2483}
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "1ba4c2076986bb55bd06ab4f6a72af0e8b20fb091b73bf339fb085d6015c0dfa",
+      "bytes": 674
+    },
+    {
+      "path": "INSTALL-WINDOWS.ps1",
+      "sha256": "5dc5e5cd4a1897abd15a64ef523b5479b50dad00f8f06727cc4d31d18d2c285c",
+      "bytes": 675
+    },
+    {
+      "path": "VERIFY-WINDOWS.ps1",
+      "sha256": "953bc76079920a865db9a90ada4bfead4da4c8c94cf97ddae5047f46b3056a79",
+      "bytes": 460
+    },
+    {
+      "path": "participation/session-template.yaml",
+      "sha256": "f5ade92a4f22091370aa5d63a8d74f1e396461ea40c9d7db0f674f04910ebaee",
+      "bytes": 610
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "fd0efdae6c0e8ee4a422b68847ed2854a59535407822e889c42ae5229f760f97",
+      "bytes": 435
+    },
+    {
+      "path": "src/civic_science/__init__.py",
+      "sha256": "1df8d53aba539e667ec551426125665f9d045da050789b5e5071be3c3ea242cf",
+      "bytes": 22
+    },
+    {
+      "path": "src/civic_science/cli.py",
+      "sha256": "ad47a0fbef7867df1e1653cb447da09d713dc6dd345018dfd8fe4da7433f5131",
+      "bytes": 2747
+    },
+    {
+      "path": "src/civic_science/models.py",
+      "sha256": "403d26f76c43458ab8f87b8178ff8727b95d88ee0ef14b3b5117a60413ba84ce",
+      "bytes": 3322
+    },
+    {
+      "path": "src/civic_science/review.py",
+      "sha256": "b1009c03e880327989be2faf6c7779da3e542947bc5ee3bc2b6447073265a649",
+      "bytes": 2757
+    },
+    {
+      "path": "src/civic_science/storage.py",
+      "sha256": "d3ee9a2be47b097b1cbb6e1e47ec77436a6508f1eb780ff9f59028bfab71e3bc",
+      "bytes": 3390
+    },
+    {
+      "path": "tests/test_logger.py",
+      "sha256": "02faa0589aa70e31c1b8fb49a439b796f87cbde77fe7f75a13eeea34d815d76e",
+      "bytes": 4172
+    }
   ]
 }
