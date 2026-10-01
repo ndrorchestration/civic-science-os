@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "civic-science-os"
-version = "0.1.0"
+version = "0.2.0"
 description = "Provenance-first session logger for human citizen-science participation"
 requires-python = ">=3.10"
 dependencies = ["pydantic>=2", "typer>=0.12", "PyYAML>=6", "Jinja2>=3"]
