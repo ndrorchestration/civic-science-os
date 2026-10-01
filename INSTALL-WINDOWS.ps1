@@ -1,5 +1,5 @@
 $ErrorActionPreference = "Stop"
-Write-Host "Civic Science Contribution OS v0.1.0 - Windows bootstrap"
+Write-Host "Civic Science Contribution OS v0.2.0 - Windows bootstrap"
 if (-not (Get-Command py -ErrorAction SilentlyContinue)) {
   throw "Python launcher 'py' was not found. Install Python 3.10+ first."
 }
