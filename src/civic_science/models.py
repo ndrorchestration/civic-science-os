@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 from uuid import UUID, uuid4
-from pydantic import BaseModel, Field, HttpUrl, model_validator
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
 
 class ClaimStatus(str, Enum):
     OBSERVED = "OBSERVED"
@@ -22,7 +22,9 @@ class AmbiguityCode(str, Enum):
     OTHER = "OTHER"
 
 class SessionRecord(BaseModel):
-    schema_version: str = "0.1.0"
+    model_config = ConfigDict(extra="forbid")
+
+    schema_version: str = "0.2.0"
     session_id: UUID = Field(default_factory=uuid4)
     started_at: datetime
     ended_at: datetime
@@ -37,6 +39,7 @@ class SessionRecord(BaseModel):
     classifications_completed: Optional[int] = Field(default=None, ge=0)
     uncertainty_notes: str = ""
     ambiguity_codes: list[AmbiguityCode] = []
+    other_ambiguity_note: str = ""
     procedural_friction: list[str] = []
     learning_notes: str = ""
     claim_status: ClaimStatus = ClaimStatus.OBSERVED
@@ -52,6 +55,8 @@ class SessionRecord(BaseModel):
             raise ValueError("started_at must be timezone-aware")
         if self.ended_at.tzinfo is None or self.ended_at.utcoffset() is None:
             raise ValueError("ended_at must be timezone-aware")
+        if self.recorded_at.tzinfo is None or self.recorded_at.utcoffset() is None:
+            raise ValueError("recorded_at must be timezone-aware")
         if self.ended_at < self.started_at:
             raise ValueError("ended_at must be >= started_at")
         if not self.instruction_sources:
@@ -61,4 +66,8 @@ class SessionRecord(BaseModel):
         if self.project.strip().lower() == "planet hunters tess":
             if self.classification_mode != "HUMAN_ONLY" or self.ai_assistance_during_classification:
                 raise ValueError("Planet Hunters TESS pilot requires HUMAN_ONLY with no AI classification assistance")
+        if AmbiguityCode.OTHER in self.ambiguity_codes and not self.other_ambiguity_note.strip():
+            raise ValueError("OTHER ambiguity code requires other_ambiguity_note")
+        if AmbiguityCode.OTHER not in self.ambiguity_codes and self.other_ambiguity_note.strip():
+            raise ValueError("other_ambiguity_note requires ambiguity code OTHER")
         return self
